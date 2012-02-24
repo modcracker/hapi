@@ -87,11 +87,13 @@ describe("Types", function(){
     })
   })
   
-  describe("#assertValidType", function(){
+  describe("#isInvalidType", function(){
     it("should exist", function(done){
-      should.exist(Types.assertValidType);
+      should.exist(Types.isInvalidType);
       done();
     })
+    
+    it("should ")
   })
   
   describe("usage", function(){
