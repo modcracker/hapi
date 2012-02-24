@@ -1,4 +1,4 @@
-var should = require("should");
+// var should = require("should");
 var Types = require("../lib/types.js");
 var Util = require("../lib/utils");
 
@@ -93,11 +93,12 @@ describe("Types", function(){
       done();
     })
     
-    it("should ")
+    // it("should")
   })
   
   describe("usage", function(){
     it("should have correct presets loaded", function(done){
+      // TODO: flesh out
       done();
     })
   })
