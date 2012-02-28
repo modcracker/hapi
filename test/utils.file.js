@@ -1,4 +1,4 @@
-// var should = require("should");
+var should = require("should");
 var path = require("path");
 var Types = require("../lib/types.js");
 var Utils = require("../lib/utils");
