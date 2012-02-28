@@ -5,9 +5,7 @@ var caseValid, caseNumeric, caseMin, caseMax;
 
 describe("StringType", function(){
   caseValid = "WALMART";
-  caseNumeric = 1000;
-  caseMin = "1";
-  caseMax = "1111111111";
+  caseLength = "1111111111";
   
   it("should be able to create new objects of type StringType", function(done){
     var experimental = StringType(caseValid);
@@ -21,16 +19,29 @@ describe("StringType", function(){
     done();
   })
   
-  it("should not validate for numeric if disallowNumerics set", function(done){
-    var experimental = StringType(caseNumeric); // TODO: factor out
-    var errors = experimental.validate({disallowNumerics: true});
-    should.exist(errors)
+  it("should not validate for length < min", function(done){
+    var experimental = StringType(caseLength);
+    should.exist(experimental.validate({min: 15}));
     done();
   })
   
-  // it("should not validate for min length if length[0] set", function(done){
-    
-  // })
+  it("should not validate for length > max", function(done){
+    var experimental = StringType(caseLength);
+    should.exist(experimental.validate({max: 5}));
+    done();
+  })
+  
+  it("should validate for length >= min", function(done){
+    var experimental = StringType(caseLength);
+    should.exist(experimental.validate({max: 5}));
+    done();
+  })
+  
+  it("should validate for length <= max", function(done){
+    var experimental = StringType(caseLength);
+    should.exist(experimental.validate({max: 50}));
+    done();
+  })
   
   it("should exhibit normal String behavior", function(done){
     (StringType(1)).toString().should.equal("1");
