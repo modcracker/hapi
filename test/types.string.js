@@ -36,6 +36,18 @@ describe("StringType", function(){
       done();
     });
     
+    it("should not validate blank input by default (allowEmpty false)", function(done){
+      var experimental = StringType("");
+      should.exist(experimental.validate());
+      done();
+    })
+    
+    it("should validate blank input if allowEmpty enabled", function(done){
+      var experimental = StringType("");
+      should.not.exist(experimental.validate({allowEmpty: true}));
+      done();
+    })
+    
     it("should not validate for length < min", function(done){
       var experimental = StringType(caseLength);
       should.exist(experimental.validate({min: 15}));

@@ -5,7 +5,7 @@ var caseValid, casesInvalid;
 
 describe("EmailType", function(){
   caseValid = "vnguyen@walmart.com"; // Can't think of another email to use
-  caseInvalid = ["vnguyen@walmart", "vnguyen@walmart.comm"];
+  casesInvalid = ["vnguyen@walmart", "vnguyenATwalmartDOTcom"];
   
   it("should be able to create new objects of type EmailType", function(done){
     (function(){
@@ -30,12 +30,6 @@ describe("EmailType", function(){
   })
   
   describe("#validate", function(){
-    // it("should not validate for blank email if required", function(done){
-    //   var experimental = EmailType();
-    //   should.exist(experimental.validate());  // should be error free
-    //   done();
-    // })
-    
     it("should validate without errors for known good email", function(done){
       var experimental = EmailType(caseValid);
       should.not.exist(experimental.validate());  // should be error free
@@ -43,8 +37,8 @@ describe("EmailType", function(){
     });
     
     it("should validate with errors for known bad emails", function(done){
-      for(var i in samples){
-        should.not.exist(EmailType(samples[i]).validate());
+      for(var i in casesInvalid){
+        should.exist(EmailType(casesInvalid[i]).validate());
       }
       done();
     });
