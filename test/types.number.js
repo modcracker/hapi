@@ -1,5 +1,5 @@
 var should = require("should");
-var NumberType = require("../lib/types/number");
+var NumberType = require("../lib/type/number");
 
 // var caseValid, caseNumeric, caseMin, caseMax;
 var caseValid;

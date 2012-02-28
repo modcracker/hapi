@@ -1,5 +1,5 @@
 var should = require("should");
-var UrlType = require("../lib/types/url");
+var UrlType = require("../lib/type/url");
 
 var caseValid, casesInvalid;
 

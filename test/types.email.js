@@ -1,5 +1,5 @@
 var should = require("should");
-var EmailType = require("../lib/types/email");
+var EmailType = require("../lib/type/email");
 
 var caseValid, casesInvalid;
 

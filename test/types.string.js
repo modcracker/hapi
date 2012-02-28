@@ -1,5 +1,5 @@
 var should = require("should");
-var StringType = require("../lib/types/string");
+var StringType = require("../lib/type/string");
 
 var caseValid, caseNumeric, caseMin, caseMax;
 
