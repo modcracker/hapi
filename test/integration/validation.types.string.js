@@ -26,19 +26,27 @@ describe("Validation < Types::StringType", function(){
 describe("Hapi Query Validation", function(){
   var endpoints, query, testHandler;
   
-  it("should accept a StringType in routes", function(done){
-    query = [
-      "String#password < String#username", // Strings 'password' depends on 'username' (one to one rel)
-      "String#csrf?", // String 'csrf' is optional
-      "String#address < String#address2 + String#city + String#zipcode + String#country?", // One to many
-      ""
-    ]
-    testHandler = function(req, res, next){
-      next();
-    }
-    endpoints = [
-      { method: "GET", path: "/testQuery", handler: testHandler, query: query}
-    ]
-    done(); // TODO: 
+  describe("API", function(){
+    describe("Direct", function(){})
+  
+    describe("Decorators", function(){})
+    
+    describe("DSL", function(){
+      it("should accept a StringType in routes", function(done){
+        query = [
+          "String#password < String#username", // Strings 'password' depends on 'username' (one to one rel)
+          "String#csrf?", // String 'csrf' is optional
+          "String#address < String#address2 + String#city + String#zipcode + String#country?", // One to many
+          ""
+        ]
+        testHandler = function(req, res, next){
+          next();
+        }
+        endpoints = [
+          { method: "GET", path: "/testQuery", handler: testHandler, query: query}
+        ]
+        done(); // TODO: 
+      })
+    })
   })
 })
