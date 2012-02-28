@@ -24,7 +24,7 @@ describe("UrlType", function(){
   
   describe("#__* (meta variables)", function(){
     it("should have an __name", function(done){
-      should.exist(UrlType.__name)
+      should.exist(UrlType.__name);
       done();
     })
   })
@@ -44,7 +44,7 @@ describe("UrlType", function(){
     });
     
     it("should throw error on invalid options", function(done){
-      // TODO:
+      // TODO: consider moving this & other generalizable tests to types.index.js
       done();
     })
   });
