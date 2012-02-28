@@ -1,11 +1,11 @@
 var should = require("should");
 var EmailType = require("../lib/types/email");
 
-var caseValid, caseInvalid;
+var caseValid, casesInvalid;
 
 describe("EmailType", function(){
   caseValid = "vnguyen@walmart.com"; // Can't think of another email to use
-  caseInvalid = "vnguyen@walmart";
+  caseInvalid = ["vnguyen@walmart", "vnguyen@walmart.comm"];
   
   it("should be able to create new objects of type EmailType", function(done){
     (function(){
@@ -42,9 +42,10 @@ describe("EmailType", function(){
       done();
     });
     
-    it("should validate with errors for known bad email", function(done){
-      var experimental = EmailType(caseInvalid);
-      should.exist(experimental.validate());  // should be error free
+    it("should validate with errors for known bad emails", function(done){
+      for(var i in samples){
+        should.not.exist(EmailType(samples[i]).validate());
+      }
       done();
     });
     
