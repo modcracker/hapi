@@ -92,13 +92,11 @@ describe("Types", function(){
       should.exist(Types.isInvalidType);
       done();
     })
-    
-    // it("should")
   })
   
   describe("usage", function(){
-    it("should have correct presets loaded", function(done){
-      // TODO: flesh out
+    it("should have some presets loaded", function(done){
+      (Object.keys(Types.registry).length).should.be.above(1)
       done();
     })
   })
