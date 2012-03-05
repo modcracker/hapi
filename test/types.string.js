@@ -22,6 +22,14 @@ describe("StringType", function(){
     done();
   })
   
+  it("should be able to create new version of itself", function(done){
+    should.exist(StringType.StringType);
+    var StringTypeClone = new StringType.StringType();
+    should.exist(StringTypeClone);
+    StringTypeClone(caseValid).toString().should.equal(StringType(caseValid).toString())
+    done();
+  })
+  
   describe("#__* (meta variables)", function(){
     it("should have an __name", function(done){
       should.exist(StringType.__name)
