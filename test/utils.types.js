@@ -12,6 +12,7 @@ describe("Types", function(){
     
     it("should have a .registry", function(done){
       should.exist(Types.registry);
+      // console.log(Types.registry);
       done();
     })
   })
@@ -36,12 +37,11 @@ describe("Types", function(){
     
     
     it("should be able to set a simple Type", function(done){
-      Types.get("String", StringType);
       ST = Types.get("String");
       
       should.exist(ST);
-      should.exist(ST.validate)
-      ST.validate.should.equal(StringType.validate);
+      should.exist(ST("walmart").validate);
+      should.not.exist(ST("walmart").validate());
       
       done();
     })

@@ -62,13 +62,13 @@ describe("StringType", function(){
     
     it("should validate for length >= min", function(done){
       var experimental = StringType(caseLength);
-      should.exist(experimental.validate({max: 5}));
+      should.not.exist(experimental.validate({min: 5}));
       done();
     });
     
     it("should validate for length <= max", function(done){
       var experimental = StringType(caseLength);
-      should.exist(experimental.validate({max: 50}));
+      should.not.exist(experimental.validate({max: 50}));
       done();
     });
     
